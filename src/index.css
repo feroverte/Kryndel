@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  background-color: #0B0B0F;
+  color: #E2E8F0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Electron drag region */
+.titlebar-drag {
+  -webkit-app-region: drag;
+}
+.titlebar-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Transitions */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(22, 22, 34, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 41, 59, 0.5);
+}
+
+/* Gradient borders */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3), rgba(20, 184, 166, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* FullCalendar overrides */
+.fc {
+  --fc-border-color: #1E293B;
+  --fc-bg-event-opacity: 0.8;
+  --fc-today-bg-color: rgba(139, 92, 246, 0.08);
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: transparent;
+  --fc-list-event-hover-bg-color: rgba(139, 92, 246, 0.1);
+}
+
+.fc .fc-scrollgrid {
+  border-color: #1E293B !important;
+}
+
+.fc .fc-col-header-cell {
+  background-color: #12121A;
+  border-color: #1E293B !important;
+  padding: 8px 0;
+}
+
+.fc .fc-col-header-cell-cushion {
+  color: #94A3B8;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fc .fc-daygrid-day {
+  border-color: #1E293B !important;
+  min-height: 100px;
+}
+
+.fc .fc-daygrid-day-number {
+  color: #94A3B8;
+  font-size: 0.8rem;
+  padding: 6px 8px;
+}
+
+.fc .fc-day-today .fc-daygrid-day-number {
+  background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+  color: white;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.fc .fc-daygrid-event {
+  border-radius: 4px;
+  font-size: 0.7rem;
+  padding: 1px 4px;
+  border: none;
+  margin-bottom: 1px;
+}
+
+.fc .fc-toolbar-title {
+  color: #E2E8F0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.fc .fc-button {
+  background: #1A1A26 !important;
+  border: 1px solid #1E293B !important;
+  color: #94A3B8 !important;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+.fc .fc-button:hover {
+  background: #1E1E2E !important;
+  color: #E2E8F0 !important;
+}
+
+.fc .fc-button-active {
+  background: rgba(139, 92, 246, 0.2) !important;
+  color: #A78BFA !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+}
+
+.fc .fc-daygrid-day:hover {
+  background-color: rgba(139, 92, 246, 0.04);
+  cursor: pointer;
+}
+
+/* Input styles */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.6);
+  cursor: pointer;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
